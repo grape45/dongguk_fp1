@@ -5,35 +5,39 @@ public class AddressBook {
     private String phone;
 
     public AddressBook(String name, String phone) {
-        this.name=name;
-        this.phone=phone;
+        this.name = name;
+        this.phone = phone;
     }
 
     public boolean isSame(String name) {
-        return name == name;
-        //Implement this function
-        // 입력받은 이름이 저장된 이름과 같은지 비교, 판단해서 true false
+        if (this.name.equals(name))
+            return true;
+        else {
+            return false;
     }
+}
 
-    public String toString(String name, String phone) {
-        this.name=name;
-        this.phone=phone;
-        System.out.println(name + "(" + phone + ")");
-        //Implement this function
-        // 새로운 string으로 받아서
-        return name;
+    public String toString() {
+        String address = (name+ "(" + phone + ")");
+        return address;
     }
 
     public static void printAll(int count, AddressBook [] books) {
-        System.out.println(count);
-        System.out.println(books);
-        //Implement this function
+        int i;
+        for(i=0;i<count;i++) {
+            System.out.println(books[i].toString());
+        }
     }
 
     public static AddressBook findByName(String name, int count, AddressBook [] books) {
         AddressBook book = null;
-
-        //Implement this function
+        int i=0;
+        for(i=0;i<count;i++) {
+            if (name.equals(books[i].name)){
+                book=books[i];
+                break;
+            }
+        }
         return book;
     }
 
